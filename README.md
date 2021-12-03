@@ -1,7 +1,7 @@
-# Digital Ocean
+## Digital Ocean
 On Digital Ocean I created a new free account. On Digital Ocean I created a new droplet with Ubunut, the basic plan, and the cheapest regular Intel CPU. I also created a password for the droplet and choice a random data center.
 
-# Docker Install
+## Docker Install
 To install docker on the droplet, I used Digital Oceans console button in order to run code and followed what I had previously done to install docker on my own computer.
 ```
 sudo apt update
@@ -12,4 +12,10 @@ sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker maxjohnson
 ```
-# Wireguard Install
+## Wireguard Install
+To Install Wireguard I inputted these comands on the console
+```
+mkdir -p ~/wireguard/
+mkdir -p ~/wireguard/config/
+nano ~/wireguard/docker-compose.yml
+```
