@@ -78,4 +78,6 @@ cat ~/wireguard/config/peer_pc1/peer_pc1.conf
 This is what my IP address looked like with no VPN (left) and with the VPN on (right).
 <img width="1680" alt="Screen Shot 2021-12-02 at 9 26 45 PM" src="https://user-images.githubusercontent.com/42543469/144540555-e3784ae3-79be-4ecc-bd7b-64766e1aa030.png">
 
-
+# Usefull Links
+https://thematrix.dev/setup-wireguard-vpn-server-with-docker/ 
+https://www.digitalocean.com/community/tutorials/how-to-set-up-wireguard-on-ubuntu-20-04
