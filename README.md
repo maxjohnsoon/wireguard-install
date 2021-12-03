@@ -22,7 +22,7 @@ nano ~/wireguard/docker-compose.yml
 ```
 I then pasted in this into the docker-compose.yml file. Note that the SERVERURL variable is the public URL from Digital Ocean
 ```
-version: "2.1"
+version: "3.3"
 services:
   wireguard:
     image: lscr.io/linuxserver/wireguard
@@ -36,17 +36,41 @@ services:
       - TZ=America/Chicago
       - SERVERURL=143.110.226.224 #optional
       - SERVERPORT=51820 #optional
-      - PEERS=1 #optional
+      - PEERS= pc1,pc2,phone1 #optional
       - PEERDNS=auto #optional
       - INTERNAL_SUBNET=10.13.13.0 #optional
       - ALLOWEDIPS=0.0.0.0/0 #optional
     volumes:
-      - /path/to/appdata/config:/config
-      - /lib/modules:/lib/modules
+      - type: bind
+        source: ./config/
+        target: /config/
+      - type: bind
+        source: /lib/modules
+        target: /lib/modules
     ports:
       - 51820:51820/udp
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
     restart: unless-stopped
-
 ```
+I then downloaded WireGuard on my Mac and created an empty tunnel where I pasted in the text below
+```
+[Interface]
+Address = 10.13.13.2
+PrivateKey = CGwrMpzOQnCz+oJW4SR2NtEJ2IOaId6SsmESEv/hHHU=
+ListenPort = 51820
+DNS = 10.13.13.1
+
+[Peer]
+PublicKey = jkMjFipRZ1xHK1voWFVVz6alnZrHBTCo42nPj9NKjQ4=
+Endpoint = 143.110.226.224:51820
+AllowedIPs = 0.0.0.0/0
+```
+I found this by running the command below found in the config files
+```
+cat ~/wireguard/config/peer_pc1/peer_pc1.conf
+```
+This is what my IP address looked like with no VPN (left) and with the VPN on (right).
+<img width="1680" alt="Screen Shot 2021-12-02 at 9 26 45 PM" src="https://user-images.githubusercontent.com/42543469/144540555-e3784ae3-79be-4ecc-bd7b-64766e1aa030.png">
+
+
