@@ -13,7 +13,7 @@ sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker maxjohnson
 ```
-# Wireguard Install
+# WireFuard Install
 To Install Wireguard I inputted these comands on the console
 ```
 mkdir -p ~/wireguard/
@@ -52,6 +52,11 @@ services:
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
     restart: unless-stopped
+```
+I then start WireGuard by running these lines which gave me a QR code which I was able to scan with the WireGuard IOS app
+```
+docker-compose up -d
+docker-compose logs -f wireguard
 ```
 I then downloaded WireGuard on my Mac and created an empty tunnel where I pasted in the text below
 ```
