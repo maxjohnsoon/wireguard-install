@@ -13,7 +13,7 @@ sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker maxjohnson
 ```
-# WireFuard Install
+# WireGuard Install
 To Install Wireguard I inputted these comands on the console
 ```
 mkdir -p ~/wireguard/
